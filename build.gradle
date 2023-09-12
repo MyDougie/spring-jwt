@@ -1,0 +1,74 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.15'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '11'
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	jwtVersion = '0.11.5'
+	lombokVersion = '1.18.12'
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// jpa
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+
+	// mybatis
+	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.2'
+
+	// mybatis log
+	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4:1.16'
+
+	// security
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+	// jwt
+	implementation "io.jsonwebtoken:jjwt-api:${jwtVersion}"
+	runtimeOnly "io.jsonwebtoken:jjwt-impl:${jwtVersion}"
+	runtimeOnly "io.jsonwebtoken:jjwt-jackson:${jwtVersion}"
+
+	// json
+	implementation "com.googlecode.json-simple:json-simple:1.1.1"                   // Google Simple JSON
+
+	// swagger
+	implementation 'io.swagger.core.v3:swagger-annotations:2.2.15'
+
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+	// mysql
+	runtimeOnly 'com.mysql:mysql-connector-j'
+
+	// lombok
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testCompileOnly "org.projectlombok:lombok:${lombokVersion}"
+	testAnnotationProcessor "org.projectlombok:lombok:${lombokVersion}"
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+
+	// junit
+	testImplementation 'junit:junit'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

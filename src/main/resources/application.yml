@@ -1,0 +1,45 @@
+server:
+  port: 8080
+  encoding:
+    charset: utf-8
+    enabled: true
+
+
+spring:
+  datasource:
+    #driver-class-name: com.mysql.cj.jdbc.Driver
+    #url: jdbc:mysql://10.68.1.232:3306/lois_das?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
+    driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:mysql://10.68.1.232:3306/lois_das?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
+    username: lois_das
+    password: '@loisDAS1234'
+    hikari:
+
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+mybatis:
+  mapper-locations: classpath*:mapper/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com:
+      zaxxer:
+        hikari: INFO
+    javax:
+      sql:
+        DataSource: OFF
+    jdbc:
+      audit: OFF # JDBC 트러블슈팅 경우를 제외하고는 사용 권장 X
+      resultset: OFF # ResultSet을 포함한 모든 JDBC 호출 정보를 출력
+      resultsettable: INFO  #SQL 결과 데이터 Table형식으로 출력
+      sqlonly: OFF     #SQL만 로그만 출력
+      sqltiming: INFO    #SQL + 소요시간 출력
+      connection : OFF  # 커넥션 연결/종료 정보 출력
