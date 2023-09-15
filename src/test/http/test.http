@@ -1,0 +1,8 @@
+POST http://localhost:8080/send/message
+Content-Type: application/json
+Authorization: BEARER eyJyZWdEYXRlIjoxNjk0NTg3MzgxNzAwLCJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyTm0iOiLqtIDrpqzsnpAiLCJ1c2VySWQiOiJhZG1pbiIsInN1YiI6IjEiLCJleHAiOjE2OTQ2MTYxODF9.SfpI9ru0ItCdjhBk-imHM867ovV4VYH9d-42ChUUVew
+
+{
+  "title": "타이틀1234",
+  "content": "내용!!"
+}

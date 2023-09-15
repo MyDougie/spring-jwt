@@ -15,6 +15,19 @@ spring:
     password: '@loisDAS1234'
     hikari:
 
+  # RabbitMQ 연결 정보
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+# RabbitMQ queue, exchange, routing-key 정보
+rabbitmq:
+  queue.name: sample.queue
+  exchange.name: sample.exchange
+  routing.key: sample.key
+
 
   jpa:
     show-sql: true

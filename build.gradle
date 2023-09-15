@@ -38,6 +38,9 @@ dependencies {
 	// mybatis log
 	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4:1.16'
 
+	// RabbitMQ
+	implementation 'org.springframework.boot:spring-boot-starter-amqp'
+
 	// security
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 
